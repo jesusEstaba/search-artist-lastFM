@@ -17,8 +17,7 @@ import {
 
 import Artista from './Artista'
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
   state = {
     search: '',
     artists: []
@@ -52,11 +51,13 @@ export default class App extends Component<Props> {
           placeholder="Nombre de tu idolo" 
           style={styles.input}
         />
-        <Button 
-          title="Buscar" 
-          onPress={this.lastfm}
-          color="#d41d24"
-        />
+        <View style={ {width:'80%'} }>
+          <Button 
+            title="Buscar" 
+            onPress={this.lastfm}
+            color="#d41d24"
+          />
+        </View>
         <FlatList  
           style={ styles.list }
           data={this.state.artists}

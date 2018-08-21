@@ -24,7 +24,13 @@ export default class App extends Component {
   }
 
   lastfm = () => {
-    let url = `http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${this.state.search}&api_key=52c2b0ddb9459bc5576f12e551a5c3ad&format=json`
+    let artistName = this.state.search.trim();
+
+    if (!artistName) {
+      return alert('No se puede hacer una busqueda vacia');
+    }
+    
+    let url = `http://ws.audioscrobbler.com/2.0/?method=artist.search&artist=${artistName}&api_key=52c2b0ddb9459bc5576f12e551a5c3ad&format=json`
     
     fetch(url)
       .then( res => res.json() )
